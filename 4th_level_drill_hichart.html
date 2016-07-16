@@ -1,0 +1,268 @@
+<html>
+	<head>
+		<title>Demo : 4level drill bar</title>
+		<script src="lib/jquery/3.0.0/jquery.min.js"></script>
+		<script src="lib/highcharts/highcharts.js"></script>
+		<script src="lib/highcharts/modules/data.js"></script>
+		<script src="lib/highcharts/modules/drilldown.js"></script>
+
+		<!-- 
+			// CDN 
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+			<script src="https://code.highcharts.com/highcharts.js"></script>
+			<script src="https://code.highcharts.com/modules/data.js"></script>
+			<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+		 -->
+	</head>
+	<body>
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	</body>
+</html>
+<script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Grade Vs Target: Year 11 Report 3 - History'
+        },
+        subtitle: {
+            text: 'Summary by Significant Groups'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Current Grade Vs Target Grade Difference'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: false,
+                    format: '{point.y:.1f}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b>points Difference from Target<br/>'
+        },
+
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'All Students',
+                y: -3.20,
+                drilldown: null
+            }, {
+                name: 'Boys',
+                y: -4.00,
+                drilldown: 'Boys'
+            }, {
+                name: 'Girls',
+                y: 1.00,
+                drilldown: 'Girls'
+            }, {
+                name: 'SEN',
+                y: -2.00,
+                drilldown: null
+            }, {
+                name: 'Yellis 130+',
+                y: -2.00,
+                drilldown: null
+            }, {
+                name: 'Teaching Group1',
+                y: -1.00,
+                drilldown: 'Teaching Group1'
+            }, {
+                name: 'Teaching Group2',
+                y: 2.00,
+                drilldown: 'Teaching Group2'
+            }]
+        }],
+        drilldown: {
+            series: [
+			            {
+			            name: 'Boys',
+			            id: 'Boys',
+			            colorByPoint: false,
+			            data: [{
+			                name: 'Percy',
+			                y: -3.20,
+			                drilldown: 'Percy'
+			            }, {
+			                name: 'Sam',
+			                y: -4.00,
+			                drilldown: 'Sam'
+			            }, {
+			                name: 'Jake',
+			                y: 1.00,
+			                drilldown: 'Jake'
+			            }, {
+			                name: 'Ryan',
+			                y: -2.00,
+			                drilldown: 'Ryan'
+			            }, {
+			                name: 'Nerd',
+			                y: -2.00,
+			                drilldown: 'Nerd'
+			            }, {
+			                name: 'Michael',
+			                y: -1.00,
+			                drilldown: 'Michael'
+			            }, {
+			                name: 'Sid',
+			                y: 2.00,
+			                drilldown: 'Sid'
+			            }]
+			        },
+			        {
+			            name: 'Girls',
+			            id: 'Girls',
+			            colorByPoint: false,
+			            data: [{
+			                name: 'Niki',
+			                y: -3.20,
+			                drilldown: 'Niki'
+			            }, {
+			                name: 'Sarah',
+			                y: -4.00,
+			                drilldown: 'Sarah'
+			            }, {
+			                name: 'Annie',
+			                y: 1.00,
+			                drilldown: 'Annie'
+			            }, {
+			                name: 'Sylvia',
+			                y: -2.00,
+			                drilldown: 'Sylvia'
+			            }, {
+			                name: 'Raya',
+			                y: -2.00,
+			                drilldown: 'Raya'
+			            }, {
+			                name: 'Lara',
+			                y: -1.00,
+			                drilldown: 'Lara'
+			            }, {
+			                name: 'Avan',
+			                y: 2.00,
+			                drilldown: 'Avan'
+			            }]
+			        },
+			        {
+			            name: 'Sam',
+			            id: 'Sam',
+			            colorByPoint: false,
+			            data: [{
+			                name: 'Arts',
+			                y: -3.20,
+			                drilldown: 'Arts'
+			            }, {
+			                name: 'Biology',
+			                y: -4.00,
+			                drilldown: 'Biology'
+			            }, {
+			                name: 'Chemistry',
+			                y: 1.00,
+			                drilldown: 'Chemistry'
+			            }, {
+			                name: 'Drama',
+			                y: -2.00,
+			                drilldown: 'Drama'
+			            }, {
+			                name: 'English Lit',
+			                y: -2.00,
+			                drilldown: 'English Lit'
+			            }, {
+			                name: 'English Language',
+			                y: -1.00,
+			                drilldown: 'English Language'
+			            }, {
+			                name: 'Maths',
+			                y: 2.00,
+			                drilldown: 'Maths'
+			            }]
+			        },
+			        {
+			            name: 'Sarah',
+			            id: 'Sarah',
+			            colorByPoint: false,
+			            data: [{
+			                name: 'Arts',
+			                y: -3.20,
+			                drilldown: 'Arts'
+			            }, {
+			                name: 'Biology',
+			                y: -4.00,
+			                drilldown: 'Biology'
+			            }, {
+			                name: 'Chemistry',
+			                y: 1.00,
+			                drilldown: 'Chemistry'
+			            }, {
+			                name: 'Drama',
+			                y: -2.00,
+			                drilldown: 'Drama'
+			            }, {
+			                name: 'English Lit',
+			                y: -2.00,
+			                drilldown: 'English Lit'
+			            }, {
+			                name: 'English Language',
+			                y: -1.00,
+			                drilldown: 'English Language'
+			            }, {
+			                name: 'Maths',
+			                y: 2.00,
+			                drilldown: 'Maths'
+			            }]
+			        },
+			        {
+			            name: 'Biology',
+			            id: 'Biology',
+			            colorByPoint: false,
+			            data: [{
+			                name: 'Yr10 Report 1',
+			                y: -3.20,
+			                drilldown: null
+			            }, {
+			                name: 'Yr10 Report 2',
+			                y: -4.00,
+			                drilldown: null
+			            }, {
+			                name: 'Yr10 Report 3',
+			                y: 1.00,
+			                drilldown: null
+			            }, {
+			                name: 'Yr10 Report 4',
+			                y: -2.00,
+			                drilldown: null
+			            }, {
+			                name: 'Yr11 Report 1',
+			                y: -2.00,
+			                drilldown: null
+			            }, {
+			                name: 'Yr11 Report 2',
+			                y: -1.00,
+			                drilldown: null
+			            }, {
+			                name: 'Yr11 Report 3',
+			                y: 2.00,
+			                drilldown: null
+			            }]
+			        }
+            ]
+        }
+    });
+});
+</script>
